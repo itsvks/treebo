@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'rest_framework',
+    'import_export',
     'rest_framework_swagger',
 ]
 
@@ -93,9 +94,12 @@ DATABASES = {
     }
 }
 
+# DATABASES = {'default': dj_database_url.config(default='postgres://foo:bar@localhost:5432/db')}
+
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
+"""
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -110,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+"""
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -129,7 +133,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
+STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "static"),)
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'hotel.pagination.StandardResultsSetPagination',
