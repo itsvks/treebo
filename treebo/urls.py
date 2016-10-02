@@ -21,7 +21,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hotel/', include('hotel.urls')),
-    url(r'^api-docs/', include('rest_framework_swagger.urls')),
+    # url(r'^api-docs/', include('rest_framework_swagger.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
